@@ -55,5 +55,13 @@ public class CheckingAccount extends Account {
 		if(credit_limit<balance*(-1)) return 0;
 		else return credit_limit - balance*(-1);
 	}
+	@Override
+	public double EstimateValue(int month)
+	{
+		return balance*(1+interest*month);
+	}
+	public String toString(){
+		return String.format("CheckingAccount_Balance: %.2f",balance);
+	}
 	
 }

@@ -50,4 +50,11 @@ public class SavingAccount extends Account{
 		}
 		
 	}
+	@Override
+	public double EstimateValue(int month) {
+		return balance * Math.pow(1+interest,month);
+	}
+	public String toString(){
+		return String.format("SavingAccount_Balance: %.2f", balance);
+	}
 }

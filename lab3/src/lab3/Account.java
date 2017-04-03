@@ -1,6 +1,6 @@
 package lab3;
 
-public abstract class Account {
+public abstract class Account implements Valuable {
 	private double balance=0;
 	
 	public Account(double m) //»ý¼ºÀÚ
