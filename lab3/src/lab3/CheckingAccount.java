@@ -28,10 +28,11 @@ public class CheckingAccount extends Account {
 		else return false;
 	}
 	@Override
-	public void debit(double m)
+	public void debit(double m) throws Exception
 	{
 		if(balance-m<credit_limit*(-1)) 
-			System.out.println("Over limit");
+			throw new Exception("Debit amount exceeded account balance.");
+		if(m<0) throw new Exception("음수입력!");
 		else balance-=m;
 	}
 	@Override

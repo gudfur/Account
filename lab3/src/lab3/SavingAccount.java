@@ -19,9 +19,12 @@ public class SavingAccount extends Account{
 		balance+=m;
 	}
 	@Override
-	public void debit(double m)
+	public void debit(double m) throws Exception
 	{
-		if(time>0) System.out.println("아직 출금할 수 없습니다.");
+		if(time>0){
+			throw new Exception("아직 출금할 수 없습니다.");
+		}
+		if(m<0) throw new Exception("음수입력!");
 		else balance-=m;
 	}
 	@Override

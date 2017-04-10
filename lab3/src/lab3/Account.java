@@ -11,7 +11,7 @@ public abstract class Account implements Valuable {
 	{
 		balance+=m;
 	}
-	public void debit(double m)
+	public void debit(double m) throws Exception
 	{
 		balance-=m;
 	}
