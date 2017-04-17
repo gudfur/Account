@@ -7,7 +7,7 @@ public class AccountTest {
 	public static void main(String args[])
 	{
 		CheckingAccount a1=new CheckingAccount(100.0,50,0.01,0.07);
-		SavingAccount a2=new SavingAccount(100.0,0.05);
+		SavingsAccount a2=new SavingsAccount(100.0,0.05);
 		double amount;
 		
 		Scanner scan=new Scanner(System.in);

@@ -1,5 +1,6 @@
 package lab3;
 
 public interface Valuable {
-	double EstimateValue(int month);
+	double estimateValue(int month);
+	double estimateValue();
 }

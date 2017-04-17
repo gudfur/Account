@@ -8,8 +8,11 @@ public class Car implements Valuable{
 		this.name=name;
 		this.price=price;
 	}
-	public double EstimateValue(int month){
+	public double estimateValue(int month){
 		return price*0.8*Math.pow(0.99, month);
+	}
+	public double estimateValue(){
+		return price*0.8*0.99;
 	}
 	public String toString(){
 		return String.format("car name: %s\ninitial price: %.2f", name,price);

@@ -1,15 +1,17 @@
 package lab3;
 
-public class SavingAccount extends Account{
-	public double balance;
+public class SavingsAccount extends Account{
+	private double balance;
+	private double balance_initial;
 	public double interest;
 	public int time; //계약기간 세는 변수
 	
-	public SavingAccount(double m, double i)
+	public SavingsAccount(double m, double i)
 	{
 		
 		super(m);
 		balance=m;
+		balance_initial=m;
 		interest=i;
 		time=12;
 	}
@@ -25,11 +27,15 @@ public class SavingAccount extends Account{
 			throw new Exception("아직 출금할 수 없습니다.");
 		}
 		if(m<0) throw new Exception("음수입력!");
-		else balance-=m;
+		else 
+		{
+			balance-=m;
+		}
 	}
 	@Override
-	public double getBalance()
+	public double getBalance() //잔액
 	{
+		if(time!=0) return balance_initial;
 		return balance;
 	}
 	@Override
@@ -38,10 +44,13 @@ public class SavingAccount extends Account{
 		balance=m;
 	}
 	@Override
-	public double getWithdrawableAccount()
+	public double getWithdrawableAccount() //출금가능액
 	{		
 		if(time!=0) return 0;
-		else return balance;
+		else
+		{
+			return balance;
+		}
 	}
 	@Override
 	public void passTime(int month)
@@ -53,10 +62,25 @@ public class SavingAccount extends Account{
 		}
 		
 	}
-	@Override
-	public double EstimateValue(int month) {
-		return balance * Math.pow(1+interest,month);
+	public void passTime()
+	{
+		if(time>0)
+		{
+			time--;
+			balance=balance*(1+interest);
+		}
 	}
+	
+	@Override
+	public double estimateValue(int month) {
+		return balance_initial*Math.pow(1+interest, month);
+	}
+	@Override
+	public double estimateValue()
+	{
+		return balance_initial*(1+interest);
+	}
+	
 	public String toString(){
 		return String.format("SavingAccount_Balance: %.2f", balance);
 	}

@@ -45,22 +45,34 @@ public class CheckingAccount extends Account {
 	{
 		balance+=m;
 	}
+	
 	@Override
 	public void passTime(int month)
 	{
 		if(balance>0) balance+=balance*(interest*month); //ÀÌÀÚ ºÙÀ½
 		else balance+=balance*(loan_interest*month); //ºú ´Ã¾î³²
 	}
+	public void passTime()
+	{
+		if(balance>0) balance+=balance*interest;
+		else balance+=balance*loan_interest;
+	}
+	
 	@Override
 	public double getWithdrawableAccount() {
 		if(credit_limit<balance*(-1)) return 0;
 		else return credit_limit - balance*(-1);
 	}
 	@Override
-	public double EstimateValue(int month)
+	public double estimateValue(int month)
 	{
 		return balance*(1+interest*month);
 	}
+	public double estimateValue()
+	{
+		return balance*(1+interest);
+	}
+	
 	public String toString(){
 		return String.format("CheckingAccount_Balance: %.2f",balance);
 	}
