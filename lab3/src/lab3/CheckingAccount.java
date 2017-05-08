@@ -1,5 +1,7 @@
 package lab3;
 
+import java.util.ArrayList;
+
 public class CheckingAccount extends Account {
 	private double balance; 
 	private double credit_limit,interest,loan_interest;
@@ -75,6 +77,18 @@ public class CheckingAccount extends Account {
 	
 	public String toString(){
 		return String.format("CheckingAccount_Balance: %.2f",balance);
+	}
+	public static double sumForAccount(ArrayList<? extends Account> list){
+		double sum=0;
+		for(Account account : list){
+			sum+=account.getBalance();
+		}
+		return sum;
+	}
+	public static void passTimeForList(ArrayList<? extends Account> list,int month){
+		for(Account account : list){
+			account.passTime(month);
+		}
 	}
 	
 }

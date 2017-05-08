@@ -16,7 +16,7 @@ public class MainTest {
 		Valuable[] objectList = new Valuable[4];
 		
 		objectList[0] = new CheckingAccount(100,50,0.01,0.07);
-		objectList[1] = new SavingsAccount(100,0.05);
+		objectList[1] = new SavingAccount(100,0.05);
 		objectList[2] = new Human("Mark", 20);
 		objectList[3] = new Car("MyCar", 5000);
 		
@@ -33,7 +33,7 @@ public class MainTest {
 		 */
 		
 		Account account1 = new CheckingAccount(100,50,0.01,0.07);
-		Account account2 = new SavingsAccount(100,0.05);
+		Account account2 = new SavingAccount(100,0.05);
 		CheckingAccount c_account1 = (CheckingAccount)account1;
 		
 		int cmd;

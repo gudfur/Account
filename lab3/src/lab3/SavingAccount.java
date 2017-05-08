@@ -1,12 +1,14 @@
 package lab3;
 
-public class SavingsAccount extends Account{
+import java.util.ArrayList;
+
+public class SavingAccount extends Account{
 	private double balance;
 	private double balance_initial;
 	public double interest;
 	public int time; //계약기간 세는 변수
 	
-	public SavingsAccount(double m, double i)
+	public SavingAccount(double m, double i)
 	{
 		
 		super(m);
@@ -83,5 +85,17 @@ public class SavingsAccount extends Account{
 	
 	public String toString(){
 		return String.format("SavingAccount_Balance: %.2f", balance);
+	}
+	public static double sumForAccount(ArrayList<? extends Account> list){
+		double sum=0;
+		for(Account account : list){
+			sum+=account.getBalance();
+		}
+		return sum;
+	}
+	public static void passTimeForList(ArrayList<? extends Account> list,int month){
+		for(Account account : list){
+			account.passTime(month);
+		}
 	}
 }
